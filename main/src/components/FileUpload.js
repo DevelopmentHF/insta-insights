@@ -37,10 +37,10 @@ function FileUpload() {
     return (
       <div>
         <input type="file" onChange={handleFileChange} />
-        <button onClick={handleUpload}>Upload</button>
+        <button onClick={handleUpload} className="bg-black rounded-lg">Upload</button>
         {   
             
-            showTopics && topics.map((topic) => {
+            showTopics && topics.slice(0,3).map((topic) => {
                 return (
                     <Topic value={topic}></Topic>
                 )
