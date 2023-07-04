@@ -36,8 +36,8 @@ function FileUpload() {
   
     return (
       <div>
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={handleUpload} className="bg-black rounded-lg">Upload</button>
+        <input className="file-input w-full max-w-xs m-4" type="file" onChange={handleFileChange} />
+        <button onClick={handleUpload} class="btn w-32 rounded-full m-4">Upload</button>
         {   
             
             showTopics && topics.slice(0,3).map((topic) => {
