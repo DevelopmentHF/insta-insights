@@ -11,7 +11,7 @@ function FileUpload() {
     const [followers, setFollowers] = useState([]);
     const [showFollowers, setShowFollowers] = useState([]);
 
-    let notFollowingBack = [];
+    const [notFollowingBack, setNotFollowingBack] = useState([]);
   
     const handleFileChange = (event) => {
         const fileList = event.target.files;
@@ -79,7 +79,8 @@ function FileUpload() {
 
         document.getElementById('followerContainer').classList.remove('hidden');
 
-        notFollowingBack = following.filter((element) => !followers.includes(element));
+        // notFollowingBack = following.filter((element) => !followers.includes(element));
+        setNotFollowingBack(following.filter((element) => !followers.includes(element)));
         console.log(notFollowingBack);
     }
   
@@ -104,16 +105,12 @@ function FileUpload() {
             // showFollowing ? <Followers></Followers> : <span></span>
             showFollowing && notFollowingBack.map((user) => {
                 return (
-                    <>
                     <Followers name={user}></Followers>
-                    </>
                 )
             })
 
         }
-        
-        
-        
+        <Followers name='you'></Followers>
       </div>
     );
   }

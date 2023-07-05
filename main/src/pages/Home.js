@@ -17,7 +17,16 @@ function Home() {
                  <div id="topicContainer" className='flex hidden'>
 
                  </div>
-                <div id="followerContainer" className='hidden'></div>
+                <div id="followerContainer" className='hidden'>
+                    <div id="carousel" className="h-96 carousel carousel-vertical rounded-box">
+                        <div className="carousel-item h-full">
+                            <h2>hi</h2>
+                        </div> 
+                        <div className="carousel-item h-full">
+                            <h2>bye</h2>
+                        </div>
+                    </div>
+                </div>
             </div>);
 }
 

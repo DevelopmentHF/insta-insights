@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useEffect } from 'react';
 
 function Followers(props) {
+
+    const [isContainerReady, setIsContainerReady] = useState(false);
+
+    useEffect(() => {
+        const targetContainer = document.getElementById('carousel');
+        if (targetContainer) {
+        setIsContainerReady(true);
+        }
+    }, []);
+
+    if (!isContainerReady) {
+        return null; // Render nothing if the container is not ready
+    }
     return createPortal(
-        <div className="h-96 carousel carousel-vertical rounded-box">
-            <div className="carousel-item h-full">
-                <h2>hi</h2>
-            </div> 
-            <div className="carousel-item h-full">
-                <h2>bye</h2>
-            </div>
-        </div>
-    , document.getElementById('followerContainer'));
+        <div className="carousel-item h-full">
+                <h2>{props.name}</h2>
+        </div> 
+    , document.getElementById('carousel'));
 }
 
 export default Followers;
