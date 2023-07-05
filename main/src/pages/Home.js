@@ -17,7 +17,7 @@ function Home() {
                  <div id="topicContainer" className='flex hidden'>
 
                  </div>
-
+                <div id="followerContainer" className='hidden'></div>
             </div>);
 }
 

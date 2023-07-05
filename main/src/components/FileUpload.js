@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Topic from './Topic';
+import Followers from './Followers';
 
 function FileUpload() {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -48,7 +49,9 @@ function FileUpload() {
         const header = document.getElementById('header');
         header.classList.remove('hidden');
 
-        document.getElementById('topicContainer').classList.remove('hidden');
+        // document.getElementById('topicContainer').classList.remove('hidden');
+
+        document.getElementById('followerContainer').classList.remove('hidden');
     }
   
     return (
@@ -59,7 +62,7 @@ function FileUpload() {
         {isUploaded ? <button id="GoBtn" className="btn btn-success m-4" onClick={handleGo}>Go</button> : <span></span>}
 
         {   
-            
+            /*
             showTopics && topics.slice(0,3).map((topic) => {
                 return (
                     <>
@@ -67,6 +70,9 @@ function FileUpload() {
                     </>
                 )
             })
+            */
+
+            showTopics ? <Followers></Followers> : <span></span>
         }
         
         
