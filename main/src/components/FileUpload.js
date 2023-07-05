@@ -78,6 +78,7 @@ function FileUpload() {
         // document.getElementById('topicContainer').classList.remove('hidden');
 
         document.getElementById('followerContainer').classList.remove('hidden');
+        document.getElementById('carousel').classList.remove('hidden');
 
         // notFollowingBack = following.filter((element) => !followers.includes(element));
         setNotFollowingBack(following.filter((element) => !followers.includes(element)));
