@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import Topic from './Topic';
 
 function FileUpload() {
-    const [selectedFile, setSelectedFile] = useState(null);
+    const [selectedFiles, setSelectedFiles] = useState([]);
     const [topics, setTopics] = useState([]);
     const [showTopics, setShowTopics] = useState(false);
     const [isUploaded, setIsUploaded] = useState(false);
   
     const handleFileChange = (event) => {
-        const file = event.target.files[0];
+        const fileList = event.target.files;
+        const filesArray = Array.from(fileList);
+
+        setSelectedFiles(filesArray);
+        const file = filesArray.find((file) => file.name === 'your_topics.json');
       
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -31,7 +35,7 @@ function FileUpload() {
   
     const handleUpload = () => {
       // Perform upload logic here using selectedFile
-      console.log(selectedFile);
+      console.log(selectedFiles);
       setIsUploaded(true);
     };
 
@@ -49,7 +53,7 @@ function FileUpload() {
   
     return (
       <div>
-        <input className="file-input w-full max-w-xs m-4" type="file" onChange={handleFileChange} />
+        <input className="file-input w-full max-w-xs m-4" type="file" onChange={handleFileChange} multiple directory="" webkitdirectory="" />
         <button onClick={handleUpload} class="btn w-32 rounded-full m-4">Upload</button>
 
         {isUploaded ? <button id="GoBtn" className="btn btn-success m-4" onClick={handleGo}>Go</button> : <span></span>}
