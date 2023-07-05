@@ -38,6 +38,11 @@ function FileUpload() {
     const handleGo = () => {
         console.log("Go");
         setShowTopics(true);
+        const og = document.getElementById('titleAndUploader');
+        og.classList.add('hidden');
+
+        const header = document.getElementById('header');
+        header.classList.remove('hidden');
     }
   
     return (
@@ -45,7 +50,7 @@ function FileUpload() {
         <input className="file-input w-full max-w-xs m-4" type="file" onChange={handleFileChange} />
         <button onClick={handleUpload} class="btn w-32 rounded-full m-4">Upload</button>
 
-        {isUploaded ? <button id="GoBtn" className="btn btn-success" onClick={handleGo}>Go</button> : <span></span>}
+        {isUploaded ? <button id="GoBtn" className="btn btn-success m-4" onClick={handleGo}>Go</button> : <span></span>}
 
         {   
             
