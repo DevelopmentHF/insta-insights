@@ -18,8 +18,17 @@ function Followers(props) {
     }
     return createPortal(
         <div className="carousel-item h-full">
-                <h2>{props.name}</h2>
-        </div> 
+             {/* <h2>{props.name}</h2> */}
+             <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
+                    <h2 className="card-title">{props.name}</h2>
+                    <p>Isn't following you back ... </p>
+                    <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Give them the boot?</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
     , document.getElementById('carousel'));
 }
 
