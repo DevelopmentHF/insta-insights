@@ -42,7 +42,10 @@ function FileUpload() {
             
             showTopics && topics.slice(0,3).map((topic) => {
                 return (
+                    <>
                     <Topic value={topic}></Topic>
+                    {/* <button className="btn btn-success">Go</button> */}
+                    </>
                 )
             })
         }
