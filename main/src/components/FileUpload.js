@@ -39,14 +39,14 @@ function FileUpload() {
             if (file.name === 'following.json') {
               jsonData.relationships_following.forEach((item) => {
                 setFollowing((prevFollowing) => [...prevFollowing, item.string_list_data[0].value]);
-                console.log("I FOLLOW:");
-                console.log(item.string_list_data[0].value);
+                // console.log("I FOLLOW:");
+                // console.log(item.string_list_data[0].value);
               });
             } else if (file.name === 'followers_1.json') {
               jsonData.forEach((item) => {
                 setFollowers((prevFollowers) => [...prevFollowers, item.string_list_data[0].value]);
-                console.log("FOLLOWS ME:");
-                console.log(item.string_list_data[0].value);
+                // console.log("FOLLOWS ME:");
+                // console.log(item.string_list_data[0].value);
               });
             }
 
@@ -59,8 +59,8 @@ function FileUpload() {
   
     const handleUpload = () => {
       // Perform upload logic here using selectedFile
-      console.log(following);
-      console.log(followers);
+      // console.log(following);
+      // console.log(followers);
       setIsUploaded(true);
     };
 
@@ -76,6 +76,9 @@ function FileUpload() {
         // document.getElementById('topicContainer').classList.remove('hidden');
 
         document.getElementById('followerContainer').classList.remove('hidden');
+
+        const notFollowingBack = following.filter((element) => !followers.includes(element));
+        console.log(notFollowingBack);
     }
   
     return (
@@ -100,7 +103,7 @@ function FileUpload() {
         }
         
         
-        {console.log(following)}
+        
       </div>
     );
   }
