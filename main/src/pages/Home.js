@@ -20,9 +20,13 @@ function Home() {
                 
                 </div>
             </div>
+         
+                <button id="next" className="btn btn-primary absolute bottom-0 right-0 m-4 hidden">Next</button>
+
                  <div id='header' className='hidden'>
                     <BackBack></BackBack>
                  </div>
+                 <div id="overview" className='hidden'></div>
                  <div id="topicContainer" className='flex hidden'>
 
                  </div>

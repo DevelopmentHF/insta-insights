@@ -75,12 +75,11 @@ function FileUpload() {
         const header = document.getElementById('header');
         header.classList.remove('hidden');
 
-        // document.getElementById('topicContainer').classList.remove('hidden');
-
         document.getElementById('followerContainer').classList.remove('hidden');
         document.getElementById('carousel').classList.remove('hidden');
+        document.getElementById('overview').classList.remove('hidden');
+        document.getElementById('next').classList.remove('hidden');
 
-        // notFollowingBack = following.filter((element) => !followers.includes(element));
         setNotFollowingBack(following.filter((element) => !followers.includes(element)));
         console.log(notFollowingBack);
     }
