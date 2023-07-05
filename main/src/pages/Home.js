@@ -9,7 +9,7 @@ function Home() {
 
                 <div className="bg-gray-700 rounded-lg drop-shadow-2xl hover:drop-shadow-md transition ease-in-out delay-100">
                     <FileUpload></FileUpload>
-                    <div className="tooltip m-8" data-tip="Select JSON and unzip the file">
+                    <div className="tooltip m-4" data-tip="Select JSON and unzip the file">
                         <button
                             className="btn btn-secondary bg-indigo-500 border-0 hover:btn-success"
                             onClick={() => window.open('https://www.instagram.com/download/request', '_blank')}
