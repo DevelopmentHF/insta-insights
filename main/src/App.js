@@ -16,6 +16,8 @@ function App() {
             <FileUpload></FileUpload>
           </div>
 
+          <div id="topicContainer" className='flex'></div>
+
         </div>
 
 
