@@ -14,7 +14,7 @@ function Home() {
                  <div id='header' className='hidden'>
                     <BackBack></BackBack>
                  </div>
-                 <div id="topicContainer" className='flex'>
+                 <div id="topicContainer" className='flex hidden'>
 
                  </div>
 

@@ -43,6 +43,8 @@ function FileUpload() {
 
         const header = document.getElementById('header');
         header.classList.remove('hidden');
+
+        document.getElementById('topicContainer').classList.remove('hidden');
     }
   
     return (
