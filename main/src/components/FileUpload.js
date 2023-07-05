@@ -4,45 +4,69 @@ import Followers from './Followers';
 
 function FileUpload() {
     const [selectedFiles, setSelectedFiles] = useState([]);
-    const [topics, setTopics] = useState([]);
-    const [showTopics, setShowTopics] = useState(false);
+    const [following, setFollowing] = useState([]);
+    const [showFollowing, setShowFollowing] = useState(false);
     const [isUploaded, setIsUploaded] = useState(false);
+
+    const [followers, setFollowers] = useState([]);
+    const [showFollowers, setShowFollowers] = useState([]);
   
     const handleFileChange = (event) => {
         const fileList = event.target.files;
         const filesArray = Array.from(fileList);
 
         setSelectedFiles(filesArray);
-        const file = filesArray.find((file) => file.name === 'your_topics.json');
-      
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const fileContent = e.target.result;
-          const jsonData = JSON.parse(fileContent);
-            
-          console.log(typeof(jsonData));
-        //   console.log(jsonData.topics_your_topics);
+        /* 
+        const file = filesArray.find((file) => file.name === 'following.json'); // following
 
-          jsonData.topics_your_topics.forEach((item) => {
-            // console.log(item.string_map_data.Name.value); // Access a specific property in each object
-            // Perform other operations with the data
-            // <Topic value={item.string_map_data.Name.value}></Topic>
-            setTopics((prevTopics) => [...prevTopics, item.string_map_data.Name.value]);
-          });
-          
-        };
-        reader.readAsText(file);
+        const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
+        */
+        const targetFiles = ['following.json', 'followers_1.json'];
+        const filesToRead = [];
+        targetFiles.forEach((targetFile) => {
+          const file = filesArray.find((file) => file.name === targetFile);
+          if (file) {
+            filesToRead.push(file);
+          }
+        });
+
+        filesToRead.forEach((file) => {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const fileContent = e.target.result;
+            const jsonData = JSON.parse(fileContent);
+
+            if (file.name === 'following.json') {
+              jsonData.relationships_following.forEach((item) => {
+                setFollowing((prevFollowing) => [...prevFollowing, item.string_list_data[0].value]);
+                console.log("I FOLLOW:");
+                console.log(item.string_list_data[0].value);
+              });
+            } else if (file.name === 'followers_1.json') {
+              jsonData.forEach((item) => {
+                setFollowers((prevFollowers) => [...prevFollowers, item.string_list_data[0].value]);
+                console.log("FOLLOWS ME:");
+                console.log(item.string_list_data[0].value);
+              });
+            }
+
+          }
+          reader.readAsText(file);
+        });
+
+        
       };
   
     const handleUpload = () => {
       // Perform upload logic here using selectedFile
-      console.log(selectedFiles);
+      console.log(following);
+      console.log(followers);
       setIsUploaded(true);
     };
 
     const handleGo = () => {
         console.log("Go");
-        setShowTopics(true);
+        setShowFollowing(true);
         const og = document.getElementById('titleAndUploader');
         og.classList.add('hidden');
 
@@ -72,11 +96,11 @@ function FileUpload() {
             })
             */
 
-            showTopics ? <Followers></Followers> : <span></span>
+            showFollowing ? <Followers></Followers> : <span></span>
         }
         
         
-        {console.log(topics)}
+        {console.log(following)}
       </div>
     );
   }
