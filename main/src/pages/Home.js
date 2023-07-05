@@ -8,7 +8,13 @@ function Home() {
                 <h1 className="m-16 font-bold text-7xl">Insta Insights<span className='text-indigo-500'>.</span></h1>
 
                 <div className="bg-gray-700 rounded-lg drop-shadow-2xl hover:drop-shadow-md transition ease-in-out delay-100">
-                <FileUpload></FileUpload>
+                    <FileUpload></FileUpload>
+                    <button
+                        className="btn btn-secondary bg-indigo-500 border-0 m-8 hover:btn-success"
+                        onClick={() => window.open('https://www.instagram.com/download/request', '_blank')}
+                        >
+                        Get My Data
+                    </button>
                 </div>
             </div>
                  <div id='header' className='hidden'>
