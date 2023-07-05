@@ -5,6 +5,7 @@ function FileUpload() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [topics, setTopics] = useState([]);
     const [showTopics, setShowTopics] = useState(false);
+    const [isUploaded, setIsUploaded] = useState(false);
   
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -31,24 +32,33 @@ function FileUpload() {
     const handleUpload = () => {
       // Perform upload logic here using selectedFile
       console.log(selectedFile);
-      setShowTopics(true);
+      setIsUploaded(true);
     };
+
+    const handleGo = () => {
+        console.log("Go");
+        setShowTopics(true);
+    }
   
     return (
       <div>
         <input className="file-input w-full max-w-xs m-4" type="file" onChange={handleFileChange} />
         <button onClick={handleUpload} class="btn w-32 rounded-full m-4">Upload</button>
+
+        {isUploaded ? <button id="GoBtn" className="btn btn-success" onClick={handleGo}>Go</button> : <span></span>}
+
         {   
             
             showTopics && topics.slice(0,3).map((topic) => {
                 return (
                     <>
                     <Topic value={topic}></Topic>
-                    {/* <button className="btn btn-success">Go</button> */}
                     </>
                 )
             })
         }
+        
+        
         {console.log(topics)}
       </div>
     );
