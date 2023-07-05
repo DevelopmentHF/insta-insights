@@ -9,12 +9,15 @@ function Home() {
 
                 <div className="bg-gray-700 rounded-lg drop-shadow-2xl hover:drop-shadow-md transition ease-in-out delay-100">
                     <FileUpload></FileUpload>
-                    <button
-                        className="btn btn-secondary bg-indigo-500 border-0 m-8 hover:btn-success"
-                        onClick={() => window.open('https://www.instagram.com/download/request', '_blank')}
-                        >
-                        Get My Data
-                    </button>
+                    <div className="tooltip m-8" data-tip="Select JSON and unzip the file">
+                        <button
+                            className="btn btn-secondary bg-indigo-500 border-0 hover:btn-success"
+                            onClick={() => window.open('https://www.instagram.com/download/request', '_blank')}
+                            >
+                            Get My Data
+                        </button>
+                    </div>
+                
                 </div>
             </div>
                  <div id='header' className='hidden'>
