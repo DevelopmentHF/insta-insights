@@ -110,7 +110,6 @@ function FileUpload() {
             })
 
         }
-        <Followers name='you'></Followers>
       </div>
     );
   }
