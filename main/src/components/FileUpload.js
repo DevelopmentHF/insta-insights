@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Topic from './Topic';
 import Followers from './Followers';
+import FollowerStats from './FollowerStats';
 
 function FileUpload() {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -90,7 +91,7 @@ function FileUpload() {
         <button onClick={handleUpload} class="btn w-32 rounded-full m-4">Upload</button>
 
         {isUploaded ? <button id="GoBtn" className="btn btn-success m-4" onClick={handleGo}>Go</button> : <span></span>}
-
+        {showFollowing ? <FollowerStats total={notFollowingBack.length}></FollowerStats> : <span></span>}
         {   
             /*
             showTopics && topics.slice(0,3).map((topic) => {

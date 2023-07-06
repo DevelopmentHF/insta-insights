@@ -31,6 +31,7 @@ function Home() {
 
                  </div>
                 <div id="followerContainer" className='hidden'>
+                    
                     <div id="carousel" className="h-96 carousel carousel-vertical rounded-box">
                         
                     </div>
