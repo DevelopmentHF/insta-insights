@@ -32,7 +32,7 @@ function Home() {
                  </div>
                 <div id="followerContainer" className='hidden flex-col'>
                     
-                    <div id="carousel" className="h-96 carousel carousel-vertical rounded-box">
+                    <div id="carousel" className="flex h-96 carousel carousel-vertical rounded-box">
                         
                     </div>
                 </div>
