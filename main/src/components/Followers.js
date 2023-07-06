@@ -24,7 +24,7 @@ function Followers(props) {
                     <h2 className="card-title">{props.name}</h2>
                     <p>Isn't following you back ... </p>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Give them the boot?</button>
+                    <a className="btn btn-primary" href={'https://www.instagram.com/' + props.name} target='_blank'>Give them the boot?</a>
                     </div>
                 </div>
             </div>
