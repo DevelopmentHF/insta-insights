@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/insta-insights/static/css/main.3130baf1.css",
-    "main.js": "/insta-insights/static/js/main.cca6bcf0.js",
+    "main.js": "/insta-insights/static/js/main.04f886b5.js",
     "static/js/787.deeec6c3.chunk.js": "/insta-insights/static/js/787.deeec6c3.chunk.js",
     "static/media/logo.svg": "/insta-insights/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/insta-insights/index.html",
     "main.3130baf1.css.map": "/insta-insights/static/css/main.3130baf1.css.map",
-    "main.cca6bcf0.js.map": "/insta-insights/static/js/main.cca6bcf0.js.map",
+    "main.04f886b5.js.map": "/insta-insights/static/js/main.04f886b5.js.map",
     "787.deeec6c3.chunk.js.map": "/insta-insights/static/js/787.deeec6c3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3130baf1.css",
-    "static/js/main.cca6bcf0.js"
+    "static/js/main.04f886b5.js"
   ]
 }
