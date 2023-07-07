@@ -80,7 +80,7 @@ function Home() {
                 </div>
 
                 <div id="likesContainer" className="hidden">
-                    <p>likes container</p>
+                    
                 </div>
 
             </div>);
