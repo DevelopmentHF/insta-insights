@@ -6,7 +6,7 @@ function LikedPosts(props) {
     const [dates, setDates] = useState([]);
     
     const [isContainerReady, setIsContainerReady] = useState(false);
-    let dateCount = 0;
+    let dateCount = 0, maxDateCount = 0, maxDate;
     
     useEffect(() => {
         const targetContainer = document.getElementById('likesContainer');
@@ -15,24 +15,42 @@ function LikedPosts(props) {
         }
     }, []);
 
-    if (!isContainerReady) {
-        return null; // Render nothing if the container is not ready
-    }
-    
     const convertUnixTimestamp = (timestamp) => {
         const date = new Date(timestamp * 1000);
-        const humanDate = date.toLocaleString();
+        const humanDate = date.toLocaleDateString();
 
         return humanDate;
     }
-    
-    props.data.forEach((obj) => {
-        setDates((prevDates) => [...prevDates, convertUnixTimestamp(obj.string_list_data[0].timestamp)]);
-    });
+
+    useEffect(() => {
+        const convertedDates = props.data.map((obj) => 
+            convertUnixTimestamp(obj.string_list_data[0].timestamp)
+        );
+        setDates(convertedDates)
+    }, [props.data]);
 
     console.log(dates);
 
-    
+    if (!isContainerReady) {
+        return null; // Render nothing if the container is not ready
+    }
+
+    for(let i=0; i < dates.length; i++) {
+        if (i >= 1) {
+            if (dates[i] === dates[i-1]) {
+                dateCount++;
+            } else {
+                if (dateCount > maxDateCount) {
+                    maxDateCount = dateCount;
+                    maxDate = dates[i-1];
+                }
+                dateCount = 0;
+            }
+        }
+    }
+
+    console.log(`maxDate=${maxDate}`);
+    console.log(`maxCount=${maxDateCount}`);
 
     return createPortal(
         <div className="stats shadow">
