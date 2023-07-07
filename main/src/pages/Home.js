@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import BackBack from '../components/BackBack';
 
 function Home() {
-    const [containers, setContainers] = useState(['followerContainer', 'likesContainer']);
+    const [containers, setContainers] = useState(['titleAndUploader', 'followerContainer', 'likesContainer']);
     const [currentContainer, setCurrentContainer] = useState(0);
 
     useEffect(() => {
@@ -34,14 +34,28 @@ function Home() {
 
                 <div className="bg-gray-700 rounded-lg drop-shadow-2xl hover:drop-shadow-md transition ease-in-out delay-100">
                     <FileUpload></FileUpload>
-                    <div className="tooltip m-4" data-tip="Select JSON and unzip the file">
+                    {/* <div className="tooltip m-4" data-tip="Select JSON and unzip the file">
                         <button
                             className="btn btn-secondary bg-indigo-500 border-0 hover:btn-success"
                             onClick={() => window.open('https://www.instagram.com/download/request', '_blank')}
                             >
                             Get My Data
                         </button>
-                    </div>
+                    </div> */}
+                    <button className="btn btn-secondary bg-indigo-500 border-0 hover:btn-success m-4" onClick={()=>window.my_modal_1.showModal()}>instructions</button>
+                    <dialog id="my_modal_1" className="modal">
+                    <form method="dialog" className="modal-box">
+                        <h3 className="font-bold text-lg">Instructions</h3>
+                        <p className="py-4">1. Download your data, select <span className='italic'>all time</span> and <span className='italic'>JSON</span></p>
+                        <a className='py-4 btn' target='_blank' href="https://www.instagram.com/download/request">DOWNLOAD</a>
+                        <p className="py-4">2. Unzip the downloaded file by double clicking on it</p>
+                        <p className="py-4">3. Upload that unzipped file and click go to analyse your data</p>
+                        <div className="modal-action">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                        </div>
+                    </form>
+                    </dialog>
                 
                 </div>
             </div>
