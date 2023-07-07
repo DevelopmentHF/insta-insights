@@ -1,8 +1,25 @@
 import FileUpload from '../components/FileUpload';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import BackBack from '../components/BackBack';
 
 function Home() {
+    const [containers, setContainers] = useState(['followerContainer', 'likesContainer']);
+    const [currentContainer, setCurrentContainer] = useState(0);
+
+    useEffect(() => {
+        console.log(`The current container is index: ${currentContainer}, name: ${containers[currentContainer]}`);
+    }, []);
+
+    const handleNext = () => {
+        setCurrentContainer(currentContainer+1);
+        console.log(`The new container is index: ${currentContainer}, name: ${containers[currentContainer]}`);
+    }
+
+    const handlePrev = () => {
+        setCurrentContainer(currentContainer-1);
+        console.log(`The new container is index: ${currentContainer}, name: ${containers[currentContainer]}`);
+    }
+
     return (<div className='flex-col'>
             <div id='titleAndUploader'>
                 <h1 className="m-16 font-bold text-7xl">Insta Insights<span className='text-indigo-500'>.</span></h1>
@@ -21,8 +38,8 @@ function Home() {
                 </div>
             </div>
          
-                <button id="next" className="btn btn-primary absolute bottom-0 right-0 m-4 hidden">Next</button>
-                <button id="prev" className="btn btn-primary absolute bottom-0 left-0 m-4 hidden">Prev</button>
+                <button id="next" className="btn btn-primary absolute bottom-0 right-0 m-4 hidden" onClick={handleNext}>Next</button>
+                <button id="prev" className="btn btn-primary absolute bottom-0 left-0 m-4 hidden" onClick={handlePrev}>Prev</button>
 
                  <div id='header' className='hidden'>
                     <BackBack></BackBack>
@@ -31,12 +48,19 @@ function Home() {
                  <div id="topicContainer" className='flex hidden'>
 
                  </div>
+
                 <div id="followerContainer" className='hidden flex-col justify-center'>
                     <div id="followerStats" className='flex m-4'></div>
                     <div id="carouselWrapper" className='flex justify-center m-4'>
                         <div id="carousel" className="h-96 carousel carousel-vertical rounded-box"></div>
+                        <p>The new container is index: {currentContainer}, name: {containers[currentContainer]}</p>
                     </div>
                 </div>
+
+                <div id="likesContainer" className="hidden">
+
+                </div>
+
             </div>);
 }
 
