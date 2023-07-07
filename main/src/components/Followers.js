@@ -17,14 +17,14 @@ function Followers(props) {
         return null; // Render nothing if the container is not ready
     }
     return createPortal(
-        <div className="carousel-item h-full">
+        <div className="flex carousel-item h-full">
              {/* <h2>{props.name}</h2> */}
              <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="card-title">{props.name}</h2>
+                    <h2 className="card-title text-4xl">@{props.name}</h2>
                     <p>Isn't following you back ... </p>
                     <div className="card-actions justify-end">
-                    <a className="btn btn-primary" href={'https://www.instagram.com/' + props.name} target='_blank'>Give them the boot?</a>
+                        <a className="btn btn-primary" href={'https://www.instagram.com/' + props.name} target='_blank'>Give them the boot?</a>
                     </div>
                 </div>
             </div>

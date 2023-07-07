@@ -5,18 +5,18 @@ function FollowerStats(props) {
     return createPortal(
         <div className="stats shadow flex">
             <div className="stat">
-                <div className="stat-title">Total not following you back</div>
+                <div className="stat-title">You have</div>
                 <div className="stat-value">{props.total}</div>
-                <div className="stat-desc"></div>
+                <div className="stat-desc">people not following you back</div>
             </div>
             <div className="stat">
-                <div className="stat-title">Percentage not following you back</div>
+                <div className="stat-title">Thats equal to</div>
                 <div className="stat-value">{props.percentage}%</div>
-                <div className="stat-desc"></div>
+                <div className="stat-desc">of your total following count</div>
             </div>
         </div>
 
-    , document.getElementById('followerContainer'));
+    , document.getElementById('followerStats'));
 }
 
 export default FollowerStats;

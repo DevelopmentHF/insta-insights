@@ -31,10 +31,10 @@ function Home() {
                  <div id="topicContainer" className='flex hidden'>
 
                  </div>
-                <div id="followerContainer" className='hidden flex-col'>
-                    
-                    <div id="carousel" className="flex h-96 carousel carousel-vertical rounded-box">
-                        
+                <div id="followerContainer" className='hidden flex-col justify-center'>
+                    <div id="followerStats" className='flex m-4'></div>
+                    <div id="carouselWrapper" className='flex justify-center m-4'>
+                        <div id="carousel" className="h-96 carousel carousel-vertical rounded-box"></div>
                     </div>
                 </div>
             </div>);
