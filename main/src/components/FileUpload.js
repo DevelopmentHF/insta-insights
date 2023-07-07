@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import Topic from './Topic';
 import Followers from './Followers';
 import FollowerStats from './FollowerStats';
+import LikedPosts from './LikedPosts';
 
 function FileUpload() {
     const [selectedFiles, setSelectedFiles] = useState([]);
+    
+    // Follower statics
     const [following, setFollowing] = useState([]);
     const [showFollowing, setShowFollowing] = useState(false);
     const [isUploaded, setIsUploaded] = useState(false);
@@ -13,6 +16,9 @@ function FileUpload() {
     const [showFollowers, setShowFollowers] = useState([]);
 
     const [notFollowingBack, setNotFollowingBack] = useState([]);
+
+    // Liked posts statistics
+    const [likedPosts, setLikedPosts] = useState([]);
   
     const handleFileChange = (event) => {
         const fileList = event.target.files;
@@ -24,7 +30,7 @@ function FileUpload() {
 
         const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
         */
-        const targetFiles = ['following.json', 'followers_1.json'];
+        const targetFiles = ['following.json', 'followers_1.json', 'liked_posts.json'];
         const filesToRead = [];
         targetFiles.forEach((targetFile) => {
           const file = filesArray.find((file) => file.name === targetFile);
@@ -51,6 +57,11 @@ function FileUpload() {
                 // console.log("FOLLOWS ME:");
                 // console.log(item.string_list_data[0].value);
               });
+            } else if (file.name === 'liked_posts.json') {
+              jsonData.likes_media_likes.forEach((item) => {
+                setLikedPosts((prevLikedPosts) => [...prevLikedPosts, item])
+              });
+              console.log(likedPosts.length);
             }
 
           }
@@ -112,6 +123,7 @@ function FileUpload() {
             })
 
         }
+        {<LikedPosts data={likedPosts}></LikedPosts>}
       </div>
     );
   }
