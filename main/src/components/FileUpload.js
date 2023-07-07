@@ -80,6 +80,7 @@ function FileUpload() {
         document.getElementById('carousel').classList.remove('hidden');
         document.getElementById('overview').classList.remove('hidden');
         document.getElementById('next').classList.remove('hidden');
+        document.getElementById('prev').classList.remove('hidden');
 
         setNotFollowingBack(following.filter((element) => !followers.includes(element)));
         console.log(notFollowingBack);

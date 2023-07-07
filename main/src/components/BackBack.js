@@ -8,6 +8,7 @@ function BackBack() {
         document.getElementById('topicContainer').classList.add('hidden');
         document.getElementById('followerContainer').classList.add('hidden');
         document.getElementById('next').classList.add('hidden');
+        document.getElementById('prev').classList.add('hidden');
     }    
     return <button className='btn btn-warning absolute left-4 top-4' onClick={handleBack}>HOME</button>;
 }

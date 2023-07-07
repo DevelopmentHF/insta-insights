@@ -22,6 +22,7 @@ function Home() {
             </div>
          
                 <button id="next" className="btn btn-primary absolute bottom-0 right-0 m-4 hidden">Next</button>
+                <button id="prev" className="btn btn-primary absolute bottom-0 left-0 m-4 hidden">Prev</button>
 
                  <div id='header' className='hidden'>
                     <BackBack></BackBack>
