@@ -8,7 +8,15 @@ function Home() {
 
     useEffect(() => {
         console.log(`The current container is index: ${currentContainer}, name: ${containers[currentContainer]}`);
-    }, []);
+        // loop thru containers and hide all those except currently selected
+        containers.forEach((container) => {
+            if (container === containers[currentContainer]) {
+                document.getElementById(container).classList.remove('hidden');
+            } else {
+                document.getElementById(container).classList.add('hidden');
+            }
+        })
+    }, [currentContainer]);
 
     const handleNext = () => {
         setCurrentContainer(currentContainer+1);
@@ -52,13 +60,13 @@ function Home() {
                 <div id="followerContainer" className='hidden flex-col justify-center'>
                     <div id="followerStats" className='flex m-4'></div>
                     <div id="carouselWrapper" className='flex justify-center m-4'>
-                        <div id="carousel" className="h-96 carousel carousel-vertical rounded-box"></div>
-                        <p>The new container is index: {currentContainer}, name: {containers[currentContainer]}</p>
+                        <div id="carousel" className="h-60 carousel carousel-vertical rounded-box"></div>
+                        {/* <p>The new container is index: {currentContainer}, name: {containers[currentContainer]}</p> */}
                     </div>
                 </div>
 
                 <div id="likesContainer" className="hidden">
-
+                    <p>likes container</p>
                 </div>
 
             </div>);
