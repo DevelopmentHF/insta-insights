@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import BackBack from '../components/BackBack';
 
 function Home() {
-    const [containers, setContainers] = useState(['titleAndUploader', 'followerContainer', 'likesContainer']);
+    const [containers, setContainers] = useState(['followerContainer', 'likesContainer']);
     const [currentContainer, setCurrentContainer] = useState(0);
 
     useEffect(() => {

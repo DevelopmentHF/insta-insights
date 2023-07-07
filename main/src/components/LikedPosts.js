@@ -3,7 +3,10 @@ import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 
 function LikedPosts(props) {
+    const [dates, setDates] = useState([]);
+    
     const [isContainerReady, setIsContainerReady] = useState(false);
+    let dateCount = 0;
     
     useEffect(() => {
         const targetContainer = document.getElementById('likesContainer');
@@ -16,6 +19,21 @@ function LikedPosts(props) {
         return null; // Render nothing if the container is not ready
     }
     
+    const convertUnixTimestamp = (timestamp) => {
+        const date = new Date(timestamp * 1000);
+        const humanDate = date.toLocaleString();
+
+        return humanDate;
+    }
+    
+    props.data.forEach((obj) => {
+        setDates((prevDates) => [...prevDates, convertUnixTimestamp(obj.string_list_data[0].timestamp)]);
+    });
+
+    console.log(dates);
+
+    
+
     return createPortal(
         <div className="stats shadow">
             
@@ -25,7 +43,7 @@ function LikedPosts(props) {
                 </div>
                 <div className="stat-title">You have liked</div>
                 <div className="stat-value text-primary">{props.data.length}</div>
-                <div className="stat-desc">21% more than last month</div>
+                <div className="stat-desc">posts</div>
             </div>
             
             <div className="stat">
