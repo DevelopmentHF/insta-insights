@@ -4,7 +4,7 @@ import Followers from './Followers';
 import FollowerStats from './FollowerStats';
 import LikedPosts from './LikedPosts';
 
-function FileUpload() {
+function FileUpload(props) {
     const [selectedFiles, setSelectedFiles] = useState([]);
     
     // Follower statics
@@ -95,6 +95,8 @@ function FileUpload() {
 
         setNotFollowingBack(following.filter((element) => !followers.includes(element)));
         console.log(notFollowingBack);
+
+        props.incrCount();
     }
   
     return (

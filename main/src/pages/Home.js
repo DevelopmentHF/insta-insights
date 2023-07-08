@@ -16,7 +16,18 @@ function Home() {
                 document.getElementById(container).classList.add('hidden');
             }
         })
+
+        if (currentContainer < 1) {
+            document.getElementById('prev').classList.add('hidden');
+        } else {
+            document.getElementById('prev').classList.remove('hidden');
+        }
+
     }, [currentContainer]);
+
+    const incrementCount = () => {
+        setCurrentContainer(currentContainer + 1);
+      };
 
     const handleNext = () => {
         setCurrentContainer(currentContainer+1);
@@ -33,7 +44,7 @@ function Home() {
                 <h1 className="m-16 font-bold text-7xl">Insta Insights<span className='text-indigo-500'>.</span></h1>
 
                 <div className="bg-gray-700 rounded-lg drop-shadow-2xl hover:drop-shadow-md transition ease-in-out delay-100">
-                    <FileUpload></FileUpload>
+                    <FileUpload incrCount={incrementCount}></FileUpload>
                     {/* <div className="tooltip m-4" data-tip="Select JSON and unzip the file">
                         <button
                             className="btn btn-secondary bg-indigo-500 border-0 hover:btn-success"
