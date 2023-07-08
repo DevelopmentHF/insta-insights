@@ -4,7 +4,7 @@ import BackBack from '../components/BackBack';
 
 function Home() {
     const [containers, setContainers] = useState(['followerContainer', 'likesContainer']);
-    const [currentContainer, setCurrentContainer] = useState(0);
+    const [currentContainer, setCurrentContainer] = useState(-1);
 
     useEffect(() => {
         console.log(`The current container is index: ${currentContainer}, name: ${containers[currentContainer]}`);
@@ -60,11 +60,11 @@ function Home() {
                 </div>
             </div>
          
-                <button id="next" className="btn btn-primary absolute bottom-0 right-0 m-4 hidden" onClick={handleNext}>Next</button>
-                <button id="prev" className="btn btn-primary absolute bottom-0 left-0 m-4 hidden" onClick={handlePrev}>Prev</button>
+                <button id="next" className="btn btn-primary absolute bottom-16 right-16 m-4 hidden" onClick={handleNext}>Next</button>
+                <button id="prev" className="btn btn-primary absolute bottom-16 left-16 m-4 hidden" onClick={handlePrev}>Prev</button>
 
                  <div id='header' className='hidden'>
-                    <BackBack></BackBack>
+                    {/* <BackBack></BackBack> */}
                  </div>
                  <div id="overview" className='hidden'></div>
                  <div id="topicContainer" className='flex hidden'>
