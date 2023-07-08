@@ -4,10 +4,27 @@ import { useEffect } from 'react';
 
 function LikedPosts(props) {
     const [dates, setDates] = useState([]);
+
+    const today = new Date();
+    const [currentDate, setCurrentDate] = useState(today);
+
+    const [daysSinceAccountCreation, setDaysSinceAccountCreation] = useState();
+
+    // when updating a useState variable in a component using a props.var you must use 
+    // useEffect to prevent too many renders
+    useEffect(() => {
+        setDaysSinceAccountCreation(
+          Math.floor(
+            (currentDate.getTime() - new Date(props.signup * 1000).getTime()) / (1000 * 60 * 60 * 24)
+          )
+        );
+      }, []);
     
     const [isContainerReady, setIsContainerReady] = useState(false);
     let dateCount = 0, maxDateCount = 0, maxDate;
     
+    // when updating a useState variable in a component using a props.var you must use 
+    // useEffect to prevent too many renders
     useEffect(() => {
         const targetContainer = document.getElementById('likesContainer');
         if (targetContainer) {
@@ -74,16 +91,20 @@ function LikedPosts(props) {
             </div>
             
             <div className="stat">
-                <div className="stat-figure text-secondary">
-                <div className="avatar online">
-                    <div className="w-16 rounded-full">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
+                <div className="stat-figure text-accent">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    height="1em"
+                    width="1em"
+                    {...props}
+                    >
+                    <path d="M20 22H4a2 2 0 01-2-2v-8c0-1.1.9-2 2-2h4V8c0-1.1.9-2 2-2h4V4c0-1.1.9-2 2-2h4a2 2 0 012 2v16a2 2 0 01-2 2zM14 8h-4v12h4V8zm-6 4H4v8h4v-8zm8-8v16h4V4h-4z" />
+                </svg>
                 </div>
-                </div>
-                <div className="stat-value">number</div>
-                <div className="stat-title">desc</div>
-                <div className="stat-desc text-secondary">detail</div>
+                <div className="stat-title">Meaning you liked</div>
+                <div className="stat-value text-accent"> {(props.data.length / daysSinceAccountCreation).toFixed(2)}</div>
+                <div className="stat-desc">per day since {convertUnixTimestamp(props.signup)}</div>
             </div>
             
         </div>

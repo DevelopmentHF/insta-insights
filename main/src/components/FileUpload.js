@@ -19,6 +19,9 @@ function FileUpload(props) {
 
     // Liked posts statistics
     const [likedPosts, setLikedPosts] = useState([]);
+
+    // Account signup statistics
+    const [signupDate, setSignupDate] = useState(0);
   
     const handleFileChange = (event) => {
         const fileList = event.target.files;
@@ -30,7 +33,7 @@ function FileUpload(props) {
 
         const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
         */
-        const targetFiles = ['following.json', 'followers_1.json', 'liked_posts.json'];
+        const targetFiles = ['following.json', 'followers_1.json', 'liked_posts.json', 'signup_information.json'];
         const filesToRead = [];
         targetFiles.forEach((targetFile) => {
           const file = filesArray.find((file) => file.name === targetFile);
@@ -61,7 +64,10 @@ function FileUpload(props) {
               jsonData.likes_media_likes.forEach((item) => {
                 setLikedPosts((prevLikedPosts) => [...prevLikedPosts, item])
               });
-              console.log(likedPosts.length);
+            //   console.log(likedPosts.length);
+            } else if (file.name === 'signup_information.json') {
+                setSignupDate(jsonData.account_history_registration_info[0].string_map_data.Time.timestamp);
+                console.log(`signupDate = ${signupDate}`);
             }
 
           }
@@ -94,7 +100,7 @@ function FileUpload(props) {
         document.getElementById('prev').classList.remove('hidden');
 
         setNotFollowingBack(following.filter((element) => !followers.includes(element)));
-        console.log(notFollowingBack);
+        // console.log(notFollowingBack);
 
         props.incrCount();
     }
@@ -125,7 +131,7 @@ function FileUpload(props) {
             })
 
         }
-        {<LikedPosts data={likedPosts}></LikedPosts>}
+        {<LikedPosts data={likedPosts} signup={signupDate}></LikedPosts>}
       </div>
     );
   }
