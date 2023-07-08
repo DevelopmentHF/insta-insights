@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/insta-insights/static/css/main.75ae6470.css",
-    "main.js": "/insta-insights/static/js/main.6251c7ef.js",
+    "main.css": "/insta-insights/static/css/main.453e7131.css",
+    "main.js": "/insta-insights/static/js/main.9edc4750.js",
     "static/js/787.deeec6c3.chunk.js": "/insta-insights/static/js/787.deeec6c3.chunk.js",
     "static/media/logo.svg": "/insta-insights/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/insta-insights/index.html",
-    "main.75ae6470.css.map": "/insta-insights/static/css/main.75ae6470.css.map",
-    "main.6251c7ef.js.map": "/insta-insights/static/js/main.6251c7ef.js.map",
+    "main.453e7131.css.map": "/insta-insights/static/css/main.453e7131.css.map",
+    "main.9edc4750.js.map": "/insta-insights/static/js/main.9edc4750.js.map",
     "787.deeec6c3.chunk.js.map": "/insta-insights/static/js/787.deeec6c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.75ae6470.css",
-    "static/js/main.6251c7ef.js"
+    "static/css/main.453e7131.css",
+    "static/js/main.9edc4750.js"
   ]
 }
