@@ -10,6 +10,8 @@ function LikedPosts(props) {
 
     const [daysSinceAccountCreation, setDaysSinceAccountCreation] = useState();
 
+    const [avg, setAvg] = useState();
+
     // when updating a useState variable in a component using a props.var you must use 
     // useEffect to prevent too many renders
     useEffect(() => {
@@ -18,7 +20,7 @@ function LikedPosts(props) {
             (currentDate.getTime() - new Date(props.signup * 1000).getTime()) / (1000 * 60 * 60 * 24)
           )
         );
-      }, []);
+      }, [currentDate, props.signup]);
     
     const [isContainerReady, setIsContainerReady] = useState(false);
     let dateCount = 0, maxDateCount = 0, maxDate;
@@ -28,9 +30,14 @@ function LikedPosts(props) {
     useEffect(() => {
         const targetContainer = document.getElementById('likesContainer');
         if (targetContainer) {
-        setIsContainerReady(true);
+            setIsContainerReady(true);
         }
     }, []);
+
+    // avg calculations
+    useEffect(() => {
+        setAvg((props.data.length / daysSinceAccountCreation).toFixed(2));
+    }, [props.data, daysSinceAccountCreation]);
 
     const convertUnixTimestamp = (timestamp) => {
         const date = new Date(timestamp * 1000);
@@ -68,6 +75,8 @@ function LikedPosts(props) {
 
     console.log(`maxDate=${maxDate}`);
     console.log(`maxCount=${maxDateCount}`);
+    console.log(`days since acc creation = ${daysSinceAccountCreation}`);
+    console.log(`avg = ${avg}`);
 
     return createPortal(
         <div id="likedStats">
@@ -104,7 +113,7 @@ function LikedPosts(props) {
                     </svg>
                     </div>
                     <div className="stat-title">Meaning you liked</div>
-                    <div className="stat-value text-accent"> {(props.data.length / daysSinceAccountCreation).toFixed(2)}</div>
+                    <div className="stat-value text-accent">{avg}</div>
                     <div className="stat-desc">per day since {convertUnixTimestamp(props.signup)}</div>
                 </div>
                 
