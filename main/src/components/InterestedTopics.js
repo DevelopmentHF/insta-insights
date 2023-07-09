@@ -26,7 +26,7 @@ function InterestedTopics(props) {
     console.log(topicsStateArray);
 
     return createPortal(
-      <div className='grid grid-cols-5'>
+      <div className='grid grid-cols-5 '>
         {topicsStateArray.map((topic) => (
             <Topic topic={topic} />
         ))}
