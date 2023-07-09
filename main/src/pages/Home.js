@@ -96,8 +96,7 @@ function Home() {
                 </div>
 
                 <div id="interestedContainer" className='hidden'>
-                    <Topic topic={"thing"}></Topic>
-                    <Topic topic={"another thing"}></Topic>
+                    <h1>Instagram thinks you're interested in ...</h1>
                 </div>
 
                 <div id="dmContainer" className='hidden'>
