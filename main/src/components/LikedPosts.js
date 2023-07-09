@@ -151,8 +151,8 @@ function LikedPosts(props) {
             <div className="m-8 flex justify-center">
                 <div className='mx-8 font-bold text-4xl grid grid-rows-5'>
                     <p className='flex items-center justify-center'>YOU</p>
-                    <p className='flex items-center justify-center text-5xl italic'>REALLY</p>
-                    <p className='flex items-center justify-center'>LIKED</p>
+                    <p className='flex items-center justify-center text-6xl italic bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text p-1'>REALLY</p>
+                    <p className='flex items-center justify-center'>LIKE</p>
                     <p className='flex items-center justify-center'>POSTS</p>
                     <p className='flex items-center justify-center'>FROM</p>
                 </div>
