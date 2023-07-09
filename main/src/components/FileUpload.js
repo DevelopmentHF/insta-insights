@@ -33,14 +33,27 @@ function FileUpload(props) {
 
         const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
         */
-        const targetFiles = ['following.json', 'followers_1.json', 'liked_posts.json', 'signup_information.json'];
+        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'signup_information.json'];
         const filesToRead = [];
-        targetFiles.forEach((targetFile) => {
-          const file = filesArray.find((file) => file.name === targetFile);
-          if (file) {
-            filesToRead.push(file);
-          }
-        });
+
+        const filteredFilesArray = filesArray.filter((file) => {
+            if (file.name === 'following.json' && file.webkitRelativePath === "instagram-data-updated/threads/following.json") {
+              console.log('bad threads annoying POS');
+              return false; // Exclude the file from the filtered array
+            } else {
+              return true; // Include the file in the filtered array
+            }
+          });
+
+          targetFiles.forEach((targetFile) => {
+            const file = filteredFilesArray.find((file) => file.name === targetFile);
+            if (file) {
+              filesToRead.push(file);
+            }
+          });
+
+        console.log("FILES");
+        console.log(filesToRead);
 
         filesToRead.forEach((file) => {
           const reader = new FileReader();
@@ -49,6 +62,8 @@ function FileUpload(props) {
             const jsonData = JSON.parse(fileContent);
 
             if (file.name === 'following.json') {
+                console.log("JSON DATA::::");
+                console.log(jsonData);
               jsonData.relationships_following.forEach((item) => {
                 setFollowing((prevFollowing) => [...prevFollowing, item.string_list_data[0].value]);
                 // console.log("I FOLLOW:");
