@@ -97,7 +97,8 @@ function Home() {
 
                 <div id="interestedContainer" className='hidden'>
                     <h1 className='font-bold m-8'>Instagram thinks you're interested in ...</h1>
-                    
+                    <div id="topicWrapper"></div>
+                    <h1 className='font-bold m-8'>Are they right?</h1>
                 </div>
 
                 <div id="dmContainer" className='hidden'>

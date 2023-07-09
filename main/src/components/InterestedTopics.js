@@ -7,7 +7,7 @@ function InterestedTopics(props) {
     const [topicsStateArray, setTopicsStateArray] = useState([])
 
     useEffect(() => {
-        const targetContainer = document.getElementById('interestedContainer');
+        const targetContainer = document.getElementById('topicWrapper');
         if (targetContainer) {
         setIsContainerReady(true);
         }
@@ -26,11 +26,11 @@ function InterestedTopics(props) {
     console.log(topicsStateArray);
 
     return createPortal(
-      <div className='grid grid-cols-5 '>
+      <div className='grid grid-cols-5 bg-customColour shadow rounded-xl p-4'>
         {topicsStateArray.map((topic) => (
             <Topic topic={topic} />
         ))}
-  </div>, document.getElementById("interestedContainer"));
+  </div>, document.getElementById("topicWrapper"));
 }
 
 export default InterestedTopics;
