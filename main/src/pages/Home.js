@@ -72,8 +72,8 @@ function Home() {
                 </div>
             </div>
          
-                <button id="next" className="btn btn-primary absolute bottom-16 right-16 m-4 hidden" onClick={handleNext}>Next</button>
-                <button id="prev" className="btn btn-primary absolute bottom-16 left-16 m-4 hidden" onClick={handlePrev}>Prev</button>
+                <button id="next" className="btn btn-primary fixed bottom-16 right-16 m-4 hidden" onClick={handleNext}>Next</button>
+                <button id="prev" className="btn btn-primary fixed bottom-16 left-16 m-4 hidden" onClick={handlePrev}>Prev</button>
 
                  <div id='header' className='hidden'>
                     {/* <BackBack></BackBack> */}
