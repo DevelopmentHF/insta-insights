@@ -12,6 +12,10 @@ function LikedPosts(props) {
 
     const [avg, setAvg] = useState();
 
+    const [countOfLikedUsers, setCountOfLikedUsers] = useState(new Map());
+
+    const [topThreeUsersLiked, setTopThreeUsersLiked] = useState([]);
+
     // when updating a useState variable in a component using a props.var you must use 
     // useEffect to prevent too many renders
     useEffect(() => {
@@ -55,6 +59,31 @@ function LikedPosts(props) {
 
     console.log(dates);
 
+    // Top 3 users liked posts calculations
+    useEffect(() => {
+        const userCounts = new Map() // update this map then set to the useState one later
+        let top3Users = []; // same logic here
+
+        props.data.forEach((post) => {
+            const user = post.title;
+            if (userCounts.has(user)) {
+                userCounts.set(user, userCounts.get(user) + 1);
+            } else {
+                userCounts.set(user, 1);
+            }
+        })
+
+        setCountOfLikedUsers(userCounts);
+        top3Users = Array.from(userCounts.entries()).sort((a, b) => b[1] - a[1]);
+        console.log("top 3");
+        console.log(top3Users);
+        setTopThreeUsersLiked(top3Users);
+
+    }, [props.data]);
+
+    console.log("COUNT OF LIKED USERS ::::");
+    console.log(countOfLikedUsers);
+
     if (!isContainerReady) {
         return null; // Render nothing if the container is not ready
     }
@@ -77,6 +106,7 @@ function LikedPosts(props) {
     console.log(`maxCount=${maxDateCount}`);
     console.log(`days since acc creation = ${daysSinceAccountCreation}`);
     console.log(`avg = ${avg}`);
+    console.log(props.data);
 
     return createPortal(
         <div id="likedStats">
@@ -129,20 +159,20 @@ function LikedPosts(props) {
                 <div className="stats stats-vertical shadow">
   
                     <div className="stat">
-                        <div className="stat-title">@username1</div>
-                        <div className="stat-value">x</div>
+                        <div className="stat-title">@{topThreeUsersLiked[0][0]}</div>
+                        <div className="stat-value">{topThreeUsersLiked[0][1]}</div>
                         <div className="stat-desc">posts liked</div>
                     </div>
                     
                     <div className="stat">
-                        <div className="stat-title">@username2</div>
-                        <div className="stat-value">y</div>
+                        <div className="stat-title">@{topThreeUsersLiked[1][0]}</div>
+                        <div className="stat-value">{topThreeUsersLiked[1][1]}</div>
                         <div className="stat-desc">posts liked</div>
                     </div>
                     
                     <div className="stat">
-                        <div className="stat-title">@username3</div>
-                        <div className="stat-value">z</div>
+                        <div className="stat-title">@{topThreeUsersLiked[2][0]}</div>
+                        <div className="stat-value">{topThreeUsersLiked[2][1]}</div>
                         <div className="stat-desc">posts liked</div>
                     </div>
                     

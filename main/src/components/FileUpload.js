@@ -128,17 +128,6 @@ function FileUpload(props) {
         {isUploaded ? <button id="GoBtn" className="btn btn-success m-4" onClick={handleGo}>Go</button> : <span></span>}
         {showFollowing ? <FollowerStats total={notFollowingBack.length} percentage={Math.round(notFollowingBack.length / following.length * 100)}></FollowerStats> : <span></span>}
         {   
-            /*
-            showTopics && topics.slice(0,3).map((topic) => {
-                return (
-                    <>
-                    <Topic value={topic}></Topic>
-                    </>
-                )
-            })
-            */
-
-            // showFollowing ? <Followers></Followers> : <span></span>
             showFollowing && notFollowingBack.map((user) => {
                 return (
                     <Followers name={user}></Followers>
