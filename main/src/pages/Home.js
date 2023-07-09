@@ -4,7 +4,7 @@ import BackBack from '../components/BackBack';
 import Topic from '../components/Topic';
 
 function Home() {
-    const [containers, setContainers] = useState(['followerContainer', 'likesContainer', 'interestedContainer', 'dmContainer']);
+    const [containers, setContainers] = useState(['followerContainer', 'likesContainer', 'commentsContainer', 'interestedContainer', 'dmContainer']);
     const [currentContainer, setCurrentContainer] = useState(-1);
 
     useEffect(() => {
@@ -92,6 +92,10 @@ function Home() {
                 </div>
 
                 <div id="likesContainer" className="hidden">
+                    
+                </div>
+
+                <div id="commentsContainer" className='hidden'>
                     
                 </div>
 

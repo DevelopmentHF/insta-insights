@@ -4,6 +4,7 @@ import Followers from './Followers';
 import FollowerStats from './FollowerStats';
 import LikedPosts from './LikedPosts';
 import InterestedTopics from './InterestedTopics';
+import LikedComments from './LikedComments';
 
 function FileUpload(props) {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -21,6 +22,9 @@ function FileUpload(props) {
     // Liked posts statistics
     const [likedPosts, setLikedPosts] = useState([]);
 
+    // Liked comments statistics
+    const [likedComments, setLikedComments] = useState([]);
+
     // Account signup statistics
     const [signupDate, setSignupDate] = useState(0);
 
@@ -37,7 +41,7 @@ function FileUpload(props) {
 
         const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
         */
-        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'signup_information.json', 'your_topics.json'];
+        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'liked_comments.json', 'signup_information.json', 'your_topics.json'];
         const filesToRead = [];
 
         const filteredFilesArray = filesArray.filter((file) => {
@@ -81,9 +85,13 @@ function FileUpload(props) {
               });
             } else if (file.name === 'liked_posts.json') {
               jsonData.likes_media_likes.forEach((item) => {
-                setLikedPosts((prevLikedPosts) => [...prevLikedPosts, item])
+                setLikedPosts((prevLikedPosts) => [...prevLikedPosts, item]);
               });
             //   console.log(likedPosts.length);
+            } else if (file.name === 'liked_comments.json') {
+              jsonData.likes_comment_likes.forEach((item) => {
+                setLikedComments((prevLikedComments) => [...prevLikedComments, item]);
+              });
             } else if (file.name === 'signup_information.json') {
                 setSignupDate(jsonData.account_history_registration_info[0].string_map_data.Time.timestamp);
                 console.log(`signupDate = ${signupDate}`);
@@ -144,6 +152,7 @@ function FileUpload(props) {
 
         }
         {<LikedPosts data={likedPosts} signup={signupDate}></LikedPosts>}
+        {<LikedComments data={likedComments}></LikedComments>}
         {<InterestedTopics data={interestedTopics}></InterestedTopics>}
       </div>
     );
