@@ -79,7 +79,7 @@ function LikedPosts(props) {
         console.log(top3Users);
         setTopThreeUsersLiked(top3Users);
 
-    }, [props.data]);
+    }, [props.data, countOfLikedUsers]);
 
     console.log("COUNT OF LIKED USERS ::::");
     console.log(countOfLikedUsers);
@@ -157,25 +157,29 @@ function LikedPosts(props) {
                     <p className='flex items-center justify-center'>FROM</p>
                 </div>
                 <div className="stats stats-vertical shadow">
-  
-                    <div className="stat">
-                        <div className="stat-title">@{topThreeUsersLiked[0][0]}</div>
-                        <div className="stat-value">{topThreeUsersLiked[0][1]}</div>
-                        <div className="stat-desc">posts liked</div>
-                    </div>
-                    
-                    <div className="stat">
-                        <div className="stat-title">@{topThreeUsersLiked[1][0]}</div>
-                        <div className="stat-value">{topThreeUsersLiked[1][1]}</div>
-                        <div className="stat-desc">posts liked</div>
-                    </div>
-                    
-                    <div className="stat">
-                        <div className="stat-title">@{topThreeUsersLiked[2][0]}</div>
-                        <div className="stat-value">{topThreeUsersLiked[2][1]}</div>
-                        <div className="stat-desc">posts liked</div>
-                    </div>
-                    
+                    {topThreeUsersLiked.length > 0 ? (
+                        <>
+                        <div className="stat">
+                            <div className="stat-title">@{topThreeUsersLiked[0][0]}</div>
+                            <div className="stat-value">{topThreeUsersLiked[0][1]}</div>
+                            <div className="stat-desc">posts liked</div>
+                        </div>
+
+                        <div className="stat">
+                            <div className="stat-title">@{topThreeUsersLiked[1][0]}</div>
+                            <div className="stat-value">{topThreeUsersLiked[1][1]}</div>
+                            <div className="stat-desc">posts liked</div>
+                        </div>
+
+                        <div className="stat">
+                            <div className="stat-title">@{topThreeUsersLiked[2][0]}</div>
+                            <div className="stat-value">{topThreeUsersLiked[2][1]}</div>
+                            <div className="stat-desc">posts liked</div>
+                        </div>
+                        </>
+                    ) : (
+                        <div>Loading...</div>
+                    )}
                 </div>
             </div>
         </div>
