@@ -16,4 +16,3 @@ function App() {
 }
 
 export default App;
-// delete pp_twilio.js
