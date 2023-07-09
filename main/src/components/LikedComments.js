@@ -54,19 +54,19 @@ function LikedComments(props) {
                     {topThreeCommentersLiked.length > 0 ? (
                         <>
                         <div className="stat">
-                            <div className="stat-title">@{topThreeCommentersLiked[0][0]}</div>
+                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeCommentersLiked[0][0]} target='_blank'>@{topThreeCommentersLiked[0][0]}</a>
                             <div className="stat-value">{topThreeCommentersLiked[0][1]}</div>
                             <div className="stat-desc">comments liked</div>
                         </div>
 
                         <div className="stat">
-                            <div className="stat-title">@{topThreeCommentersLiked[1][0]}</div>
+                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeCommentersLiked[1][0]} target='_blank'>@{topThreeCommentersLiked[1][0]}</a>
                             <div className="stat-value">{topThreeCommentersLiked[1][1]}</div>
                             <div className="stat-desc">comments liked</div>
                         </div>
 
                         <div className="stat">
-                            <div className="stat-title">@{topThreeCommentersLiked[2][0]}</div>
+                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeCommentersLiked[1][0]} target='_blank'>@{topThreeCommentersLiked[2][0]}</a>
                             <div className="stat-value">{topThreeCommentersLiked[2][1]}</div>
                             <div className="stat-desc">comments liked</div>
                         </div>

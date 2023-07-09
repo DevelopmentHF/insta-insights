@@ -160,19 +160,19 @@ function LikedPosts(props) {
                     {topThreeUsersLiked.length > 0 ? (
                         <>
                         <div className="stat">
-                            <div className="stat-title">@{topThreeUsersLiked[0][0]}</div>
+                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeUsersLiked[0][0]} target='_blank'>@{topThreeUsersLiked[0][0]}</a>
                             <div className="stat-value">{topThreeUsersLiked[0][1]}</div>
                             <div className="stat-desc">posts liked</div>
                         </div>
 
                         <div className="stat">
-                            <div className="stat-title">@{topThreeUsersLiked[1][0]}</div>
+                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeUsersLiked[1][0]} target='_blank'>@{topThreeUsersLiked[1][0]}</a>
                             <div className="stat-value">{topThreeUsersLiked[1][1]}</div>
                             <div className="stat-desc">posts liked</div>
                         </div>
 
                         <div className="stat">
-                            <div className="stat-title">@{topThreeUsersLiked[2][0]}</div>
+                            <div className="stat-title" href={'https://www.instagram.com/' + topThreeUsersLiked[2][0]} target='_blank'>@{topThreeUsersLiked[2][0]}</div>
                             <div className="stat-value">{topThreeUsersLiked[2][1]}</div>
                             <div className="stat-desc">posts liked</div>
                         </div>
