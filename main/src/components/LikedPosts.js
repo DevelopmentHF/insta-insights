@@ -79,7 +79,7 @@ function LikedPosts(props) {
         console.log(top3Users);
         setTopThreeUsersLiked(top3Users);
 
-    }, [props.data, countOfLikedUsers]);
+    }, [props.data]);
 
     console.log("COUNT OF LIKED USERS ::::");
     console.log(countOfLikedUsers);

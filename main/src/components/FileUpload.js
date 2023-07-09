@@ -3,6 +3,7 @@ import Topic from './Topic';
 import Followers from './Followers';
 import FollowerStats from './FollowerStats';
 import LikedPosts from './LikedPosts';
+import InterestedTopics from './InterestedTopics';
 
 function FileUpload(props) {
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -22,6 +23,9 @@ function FileUpload(props) {
 
     // Account signup statistics
     const [signupDate, setSignupDate] = useState(0);
+
+    // Interested topic statistics
+    const [interestedTopics, setInterestedTopics] = useState([]);
   
     const handleFileChange = (event) => {
         const fileList = event.target.files;
@@ -33,7 +37,7 @@ function FileUpload(props) {
 
         const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
         */
-        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'signup_information.json'];
+        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'signup_information.json', 'your_topics.json'];
         const filesToRead = [];
 
         const filteredFilesArray = filesArray.filter((file) => {
@@ -83,6 +87,10 @@ function FileUpload(props) {
             } else if (file.name === 'signup_information.json') {
                 setSignupDate(jsonData.account_history_registration_info[0].string_map_data.Time.timestamp);
                 console.log(`signupDate = ${signupDate}`);
+            } else if (file.name === 'your_topics.json') {
+                jsonData.topics_your_topics.forEach((topic) => {
+                    setInterestedTopics((prevTopics) => [...prevTopics, topic.string_map_data.Name.value]);
+                })
             }
 
           }
@@ -136,6 +144,7 @@ function FileUpload(props) {
 
         }
         {<LikedPosts data={likedPosts} signup={signupDate}></LikedPosts>}
+        {<InterestedTopics data={interestedTopics}></InterestedTopics>}
       </div>
     );
   }

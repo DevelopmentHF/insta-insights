@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-function Topic(props) {
+function InterestedTopics(props) {
     const [isContainerReady, setIsContainerReady] = useState(false);
 
     useEffect(() => {
@@ -15,10 +15,13 @@ function Topic(props) {
         return null; // Render nothing if the container is not ready
     }
 
+    console.log("TOPCIS::::");
+    console.log(props.data);
+
     return createPortal(
       <div>
-        <div className="badge badge-primary p-3 hover:scale-150">you're interested in {props.topic}</div>
+        
   </div>, document.getElementById("interestedContainer"));
 }
 
-export default Topic;
+export default InterestedTopics;

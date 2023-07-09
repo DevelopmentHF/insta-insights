@@ -1,9 +1,10 @@
 import FileUpload from '../components/FileUpload';
 import React, { useState, useEffect } from 'react';
 import BackBack from '../components/BackBack';
+import Topic from '../components/Topic';
 
 function Home() {
-    const [containers, setContainers] = useState(['followerContainer', 'likesContainer']);
+    const [containers, setContainers] = useState(['followerContainer', 'likesContainer', 'interestedContainer', 'dmContainer']);
     const [currentContainer, setCurrentContainer] = useState(-1);
 
     useEffect(() => {
@@ -41,7 +42,7 @@ function Home() {
 
     return (<div className='flex-col'>
             <div id='titleAndUploader'>
-                <h1 className="m-16 font-bold text-7xl">Insta Insights<span className='text-indigo-500'>.</span></h1>
+                <h1 className="m-16 font-bold text-7xl">Insta Insights<span className='text-primary'>.</span></h1>
 
                 <div className="bg-gray-700 rounded-lg drop-shadow-2xl hover:drop-shadow-md transition ease-in-out delay-100">
                     <FileUpload incrCount={incrementCount}></FileUpload>
@@ -53,7 +54,7 @@ function Home() {
                             Get My Data
                         </button>
                     </div> */}
-                    <button className="btn btn-secondary bg-indigo-500 border-0 hover:btn-success m-4" onClick={()=>window.my_modal_1.showModal()}>instructions</button>
+                    <button className="btn btn-secondary bg-primary border-0 hover:btn-success m-4" onClick={()=>window.my_modal_1.showModal()}>instructions</button>
                     <dialog id="my_modal_1" className="modal">
                     <form method="dialog" className="modal-box">
                         <h3 className="font-bold text-lg">Instructions</h3>
@@ -94,6 +95,14 @@ function Home() {
                     
                 </div>
 
+                <div id="interestedContainer" className='hidden'>
+                    <Topic topic={"thing"}></Topic>
+                    <Topic topic={"another thing"}></Topic>
+                </div>
+
+                <div id="dmContainer" className='hidden'>
+                    <p>DM stats</p>
+                </div>
             </div>);
 }
 
