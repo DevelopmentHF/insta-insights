@@ -43,8 +43,8 @@ function LikedComments(props) {
     return createPortal(
         <div id='likedComments'>
             <div className="flex justify-center">
-                <div className='font-bold text-4xl grid grid-rows-4'>
-                    <p className='flex items-center justify-center'>AND</p>
+                <div className='font-bold text-4xl grid grid-rows-3'>
+                    {/* <p className='flex items-center justify-center'>AND</p> */}
                     {/* <p className='flex items-center justify-center text-6xl italic bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text p-1'>REALLY</p>
                      */}
                     <p className='flex items-center justify-center'>YOU</p>
