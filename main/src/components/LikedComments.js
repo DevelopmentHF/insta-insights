@@ -34,7 +34,7 @@ function LikedComments(props) {
         top3Commenters = Array.from(commenterCounts.entries()).sort((a, b) => b[1] - a[1]);
 
         setTopThreeCommentersLiked(top3Commenters);
-    });
+    }, [props.data]);
 
     if (!isContainerReady) {
         return null; // Render nothing if the container is not ready

@@ -99,9 +99,13 @@ function Home() {
                     
                 </div>
 
-                <div id="interestedContainer" className='hidden'>
-                    <h1 className='font-bold m-8'>Instagram thinks you're interested in ...</h1>
-                    <div id="topicWrapper"></div>
+                <div id="interestedContainer" className='hidden scale-150 flex-col'>
+                    <h1 className='font-bold m-8 justify-self-start'>Instagram <span className='font-bold text-5xl p-2 bg-gradient-to-r from-accent to-primary text-transparent bg-clip-text'>thinks</span> you're interested in ...</h1>
+                    <div className="indicator">
+                        <span className="indicator-item badge badge-accent font-bold">Swipe To See More</span> 
+                        <div id="interestedCarousel" className="carousel rounded-box w-96"></div>
+                    </div>
+                    
                     <h1 className='font-bold m-8'>Are they right?</h1>
                 </div>
 

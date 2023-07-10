@@ -8,11 +8,12 @@ function Topic(props) {
 
     const randomIndex = Math.floor(Math.random() * possibleColours.length);
 
-    return (
-      <div>
-        <div className={`badge bg-${possibleColours[randomIndex]} badge-${possibleColours[randomIndex]} p-3 hover:scale-110`}>{props.topic}</div>
-    </div>
-    )
+    return (createPortal(
+        <div className="carousel-item w-1/3">
+          <div className="badge badge-neutral w-full p-4 h-full">{props.topic}</div>
+      </div> 
+    , document.getElementById('interestedCarousel'))
+    );
 }
 
 export default Topic;
