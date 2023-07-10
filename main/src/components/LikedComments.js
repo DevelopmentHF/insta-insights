@@ -42,31 +42,32 @@ function LikedComments(props) {
 
     return createPortal(
         <div id='likedComments'>
-            <div className="m-8 flex justify-center">
-                <div className='mx-8 font-bold text-4xl grid grid-rows-4'>
+            <div className="flex justify-center">
+                <div className='font-bold text-4xl grid grid-rows-4'>
+                    <p className='flex items-center justify-center'>AND</p>
+                    {/* <p className='flex items-center justify-center text-6xl italic bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text p-1'>REALLY</p>
+                     */}
                     <p className='flex items-center justify-center'>YOU</p>
-                    <p className='flex items-center justify-center text-6xl italic bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text p-1'>REALLY</p>
-                    <p className='flex items-center justify-center'>LIKE</p>
+                    <p className='flex items-center justify-center text-6xl italic bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text p-1'>LOVE</p>
                     <p className='flex items-center justify-center'>WHAT</p>
-
                 </div>
-                <div className="stats stats-vertical shadow">
+                <div className="m-4 stats stats-vertical shadow">
                     {topThreeCommentersLiked.length > 0 ? (
                         <>
                         <div className="stat">
-                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeCommentersLiked[0][0]} target='_blank'>@{topThreeCommentersLiked[0][0]}</a>
+                            <a className="stat-title text-primary" href={'https://www.instagram.com/' + topThreeCommentersLiked[0][0]} target='_blank'>@{topThreeCommentersLiked[0][0]}</a>
                             <div className="stat-value">{topThreeCommentersLiked[0][1]}</div>
                             <div className="stat-desc">comments liked</div>
                         </div>
 
                         <div className="stat">
-                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeCommentersLiked[1][0]} target='_blank'>@{topThreeCommentersLiked[1][0]}</a>
+                            <a className="stat-title text-secondary" href={'https://www.instagram.com/' + topThreeCommentersLiked[1][0]} target='_blank'>@{topThreeCommentersLiked[1][0]}</a>
                             <div className="stat-value">{topThreeCommentersLiked[1][1]}</div>
                             <div className="stat-desc">comments liked</div>
                         </div>
 
                         <div className="stat">
-                            <a className="stat-title" href={'https://www.instagram.com/' + topThreeCommentersLiked[1][0]} target='_blank'>@{topThreeCommentersLiked[2][0]}</a>
+                            <a className="stat-title text-accent" href={'https://www.instagram.com/' + topThreeCommentersLiked[1][0]} target='_blank'>@{topThreeCommentersLiked[2][0]}</a>
                             <div className="stat-value">{topThreeCommentersLiked[2][1]}</div>
                             <div className="stat-desc">comments liked</div>
                         </div>
