@@ -84,6 +84,9 @@ function LikedComments(props) {
 
                 </div>
             </div>
+            <div className='bg-customColour rounded-xl p-2'>
+                <p className='stat-desc text-xl'>You've written <span className='font-bold'>{props.userComments.length}</span> comments</p>
+            </div>
         </div>
     , document.getElementById('commentsContainer'));
 }

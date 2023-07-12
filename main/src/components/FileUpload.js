@@ -30,6 +30,12 @@ function FileUpload(props) {
 
     // Interested topic statistics
     const [interestedTopics, setInterestedTopics] = useState([]);
+
+    // Your Comment Statistics
+    const [comments, setComments] = useState([]);
+
+    // Your DM stats
+    
   
     const handleFileChange = (event) => {
         const fileList = event.target.files;
@@ -41,7 +47,7 @@ function FileUpload(props) {
 
         const file2 = filesArray.find((file2) => file2.name === 'followers_1.json'); // followers
         */
-        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'liked_comments.json', 'signup_information.json', 'your_topics.json'];
+        const targetFiles = ['following.json','followers_1.json', 'liked_posts.json', 'liked_comments.json', 'signup_information.json', 'your_topics.json', 'post_comments_1.json'];
         const filesToRead = [];
 
         const filteredFilesArray = filesArray.filter((file) => {
@@ -98,7 +104,11 @@ function FileUpload(props) {
             } else if (file.name === 'your_topics.json') {
                 jsonData.topics_your_topics.forEach((topic) => {
                     setInterestedTopics((prevTopics) => [...prevTopics, topic.string_map_data.Name.value]);
-                })
+                });
+            } else if (file.name === 'post_comments_1.json') {
+                jsonData.forEach((item) => {
+                  setComments((prevComments) => [...prevComments, item.string_map_data.Comment.value]);
+                });
             }
 
           }
@@ -107,6 +117,7 @@ function FileUpload(props) {
 
         
       };
+
   
     const handleUpload = () => {
       // Perform upload logic here using selectedFile
@@ -152,8 +163,9 @@ function FileUpload(props) {
 
         }
         {<LikedPosts data={likedPosts} signup={signupDate}></LikedPosts>}
-        {<LikedComments data={likedComments}></LikedComments>}
+        {<LikedComments data={likedComments} userComments={comments}></LikedComments>}
         {<InterestedTopics data={interestedTopics}></InterestedTopics>}
+        {console.log(comments)}
       </div>
     );
   }
